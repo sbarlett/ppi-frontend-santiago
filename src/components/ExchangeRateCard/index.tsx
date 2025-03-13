@@ -59,6 +59,8 @@ const ExchangeRateCard = ({
             control={control}
             name="amount"
             label="Amount"
+            placeholder="Enter amount"
+            aria-label="Amount"
             includeSymbol
             fullWidth
           />
@@ -67,9 +69,10 @@ const ExchangeRateCard = ({
             name="from"
             label="From"
             placeholder="Select currency"
+            aria-label="From"
             options={coins}
           />
-          <MuiIconButton onClick={onSwap}>
+          <MuiIconButton onClick={onSwap} type="button" tabIndex={1}>
             <ExchangeIcon />
           </MuiIconButton>
           <SelectController
@@ -77,6 +80,7 @@ const ExchangeRateCard = ({
             name="to"
             label="To"
             placeholder="Select currency"
+            aria-label="To"
             options={coins}
           />
         </Wrapper>
