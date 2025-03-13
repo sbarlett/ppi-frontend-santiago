@@ -1,10 +1,10 @@
 import { Box, IconButton, Link, styled, Typography } from '@mui/material';
 
-export const Container = styled(Box)(({ theme }) => ({
+export const Container = styled(Box)({
   display: 'flex',
   flexDirection: 'column',
   gap: '10px',
-}));
+});
 
 export const Card = styled(Box)(({ theme }) => ({
   display: 'flex',

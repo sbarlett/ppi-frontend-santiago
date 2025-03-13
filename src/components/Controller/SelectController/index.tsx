@@ -1,5 +1,5 @@
 import { FormControl, SxProps } from '@mui/material';
-import { memo, useState } from 'react';
+import React, { memo, useState } from 'react';
 import {
   FieldValues,
   useController,
@@ -17,7 +17,6 @@ import {
 type Option = { value: string; name: string };
 
 interface Props {
-  onChange?: (event: React.ChangeEvent<{ value: unknown }>) => void;
   options: Option[];
   placeholder: string;
   sx?: SxProps;
@@ -30,7 +29,6 @@ function SelectController<T extends FieldValues>({
   control,
   name,
   options,
-  disabled,
   label,
   sx,
   ...props

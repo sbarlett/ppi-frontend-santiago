@@ -1,5 +1,5 @@
+import React, { useCallback } from 'react';
 import { TextField, TextFieldProps } from '@mui/material';
-import { useCallback } from 'react';
 import {
   FieldValues,
   useController,
@@ -30,13 +30,16 @@ function InputController<T extends FieldValues>({
     control,
   });
 
-  const handleChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
-    const newValue = event.target.value;
-    const regex = /^\d*$/;
-    if (regex.test(newValue) || newValue === '') {
-      onChange(event);
-    }
-  }, [onChange]);
+  const handleChange = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      const newValue = event.target.value;
+      const regex = /^\d*$/;
+      if (regex.test(newValue) || newValue === '') {
+        onChange(event);
+      }
+    },
+    [onChange]
+  );
 
   return (
     <TextField
@@ -86,7 +89,11 @@ function InputController<T extends FieldValues>({
         },
       }}
       onKeyDown={(event) => {
-        if (!/[0-9]/.test(event.key) && event.key !== 'Backspace' && event.key !== 'Delete') {
+        if (
+          !/[0-9]/.test(event.key) &&
+          event.key !== 'Backspace' &&
+          event.key !== 'Delete'
+        ) {
           event.preventDefault();
         }
       }}

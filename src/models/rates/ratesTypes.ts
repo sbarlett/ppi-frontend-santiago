@@ -1,5 +1,5 @@
-import { Rates } from "./dto";
+import { Rates } from './dto';
 
 export interface RatesResponse {
-  rates: Rates
+  rates: Rates;
 }

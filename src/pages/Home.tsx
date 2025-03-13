@@ -14,8 +14,7 @@ const Container = styled(Box)({
 });
 
 export const Home = () => {
-  const { data: coinsOptions, isLoading: loaingCoins
-  } = useCurrencies();
+  const { data: coinsOptions, isLoading: loaingCoins } = useCurrencies();
   const { data: ratesData, isLoading: loadingRates } = useRates();
 
   const methods = useForm<FormValues>({
@@ -26,7 +25,11 @@ export const Home = () => {
     <FormProvider {...methods}>
       <Container>
         <TopBar />
-        <HomeContainer conversionRates={ratesData} coins={coinsOptions} isLoading={loadingRates || loaingCoins} />
+        <HomeContainer
+          conversionRates={ratesData}
+          coins={coinsOptions}
+          isLoading={loadingRates || loaingCoins}
+        />
       </Container>
     </FormProvider>
   );

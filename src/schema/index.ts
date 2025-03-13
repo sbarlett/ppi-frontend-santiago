@@ -1,4 +1,4 @@
-import { now } from "../utils/date";
+import { now } from '../utils/date';
 
 export interface FormValues {
   amount: number;

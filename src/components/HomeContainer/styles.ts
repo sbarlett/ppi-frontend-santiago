@@ -28,7 +28,7 @@ export const ExchangeRateCardWrapper = styled(Box)({
   left: '295px',
 });
 
-export const SkeletonCard = styled(Skeleton)( ({theme}) => ({
+export const SkeletonCard = styled(Skeleton)(({ theme }) => ({
   width: '100%',
   maxHeight: '479px',
   height: '100%',
@@ -37,5 +37,5 @@ export const SkeletonCard = styled(Skeleton)( ({theme}) => ({
   boxShadow: '0px 5px 5px rgba(0, 0, 0, 0.25)',
   [theme.breakpoints.up('md')]: {
     maxHeight: '435px',
-  }
+  },
 }));

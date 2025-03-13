@@ -32,11 +32,11 @@ const ExchangeRateCard = ({
   coins: { value: string; name: string }[];
   rates: { [key: string]: number };
   data: FormValues;
-  largeNames:{
+  largeNames: {
     from: string;
     to: string;
-  }
-  onSubmit: (data: any) => void;
+  };
+  onSubmit: (data: FormValues) => void;
 }) => {
   const { control, handleSubmit } = useFormContext();
   const { from, to, amount, date: lastUpdate } = data;
@@ -63,7 +63,7 @@ const ExchangeRateCard = ({
             control={control}
             name="from"
             label="From"
-            placeholder='Select currency'
+            placeholder="Select currency"
             options={coins}
           />
           <MuiIconButton type="submit">
@@ -73,7 +73,7 @@ const ExchangeRateCard = ({
             control={control}
             name="to"
             label="To"
-            placeholder='Select currency'
+            placeholder="Select currency"
             options={coins}
           />
         </Wrapper>

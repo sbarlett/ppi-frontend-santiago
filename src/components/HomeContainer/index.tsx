@@ -15,9 +15,9 @@ const HomeContainer = ({
   coins: { value: string; name: string }[];
   isLoading: boolean;
 }) => {
-  const { watch, setValue} = useFormContext();
+  const { watch, setValue } = useFormContext();
 
-  const { from, to, amount,date } = watch();
+  const { from, to, amount, date } = watch();
 
   const rates = conversionRates?.rates || {};
 
@@ -39,7 +39,7 @@ const HomeContainer = ({
     <Container>
       <Title>{`${formatNumber(amount)} ${from} to ${to} - Convert ${selectedFromName} to ${selectedToName}`}</Title>
       {isLoading ? (
-        <SkeletonCard variant="rectangular" animation='wave'  />
+        <SkeletonCard variant="rectangular" animation="wave" />
       ) : (
         <ExchangeRateCard
           coins={coins}
@@ -48,7 +48,7 @@ const HomeContainer = ({
             amount,
             from,
             to,
-            date
+            date,
           }}
           largeNames={{
             from: selectedFromName,
