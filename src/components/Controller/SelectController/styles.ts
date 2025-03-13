@@ -1,10 +1,4 @@
-import {
-  IconButton,
-  InputLabel,
-  MenuItem,
-  Select,
-  styled,
-} from '@mui/material';
+import { InputLabel, MenuItem, Select, styled } from '@mui/material';
 
 export const MenuProps = (menuWidth: string | number) => ({
   PaperProps: {
@@ -82,16 +76,12 @@ export const MuiSelect = styled(Select)({
     fontSize: 16,
     fontWeight: 600,
   },
-});
-
-export const MuiIcon = styled(IconButton, {
-  shouldForwardProp: (prop) => prop !== 'open',
-})(({ open }: { open: boolean }) => ({
-  padding: '12px',
-  color: '#323232',
-  marginRight: '4px',
-  ':hover, :active': {
-    backgroundColor: 'transparent',
+  '& .MuiSelect-icon': {
+    right: '16px',
+    color: '#323232',
+    top: 'calc(50% - 9px)',
   },
-  transform: open ? 'rotate(180deg)' : 'rotate(0deg)',
-}));
+  '& .MuiSelect-iconOpen': {
+    top: 'calc(50% - 12px)',
+  },
+});

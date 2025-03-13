@@ -1,18 +1,27 @@
-import { FormControl, SxProps } from '@mui/material';
-import React, { memo, useState } from 'react';
+import { Box, FormControl, SxProps } from '@mui/material';
+import { memo, useState } from 'react';
 import {
   FieldValues,
   useController,
   UseControllerProps,
 } from 'react-hook-form';
 import { ArrowDownIcon } from '../../assets';
-import {
-  MenuProps,
-  MuiIcon,
-  MuiLabel,
-  MuiSelect,
-  StyledMenuItem,
-} from './styles';
+import { MenuProps, MuiLabel, MuiSelect, StyledMenuItem } from './styles';
+
+export const ArrowIcon = ({
+  open,
+  className,
+  ...props
+}: {
+  open: boolean;
+  className?: string;
+}) => {
+  return (
+    <Box {...props} className={className}>
+      <ArrowDownIcon />
+    </Box>
+  );
+};
 
 type Option = { value: string; name: string };
 
@@ -45,18 +54,14 @@ function SelectController<T extends FieldValues>({
   const menuWidth = typeof sx === 'object' && (sx as { width?: string }).width;
 
   return (
-    <FormControl fullWidth onClick={handleToggle}>
+    <FormControl fullWidth>
       <MuiLabel>{label}</MuiLabel>
       <MuiSelect
         value={value}
         inputRef={ref}
         onChange={onChange}
         label={label}
-        IconComponent={() => (
-          <MuiIcon open={open}>
-            <ArrowDownIcon />
-          </MuiIcon>
-        )}
+        IconComponent={ArrowIcon}
         MenuProps={MenuProps(menuWidth)}
         onOpen={handleToggle}
         onClose={handleToggle}
