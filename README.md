@@ -10,12 +10,10 @@ Este proyecto utiliza React con TypeScript y Vite.
 
 ```sh
 npm install
-
+```
 
 ## Cómo correr la aplicación:
 
 ```sh
 npm run dev
-
-
-
+```
