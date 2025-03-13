@@ -1,6 +1,7 @@
 import { useMemo } from 'react';
 import { useFormContext } from 'react-hook-form';
 import { FormValues } from '../../schema';
+import { formatNumber } from '../../utils/formatNumber';
 import { ExchangeIcon } from '../assets';
 import InputController from '../Controller/InputController/InputController';
 import SelectController from '../Controller/SelectController';
@@ -14,23 +15,25 @@ import {
   MuiLink,
   ParagraphLarge,
   ParagraphSmall,
+  SkeletonResult,
   TextMobile,
   TooltipInformative,
   TooltipSmallTextDesktop,
   TooltipText,
   Wrapper,
 } from './styles';
-import { formatNumber } from '../../utils/formatNumber';
 
 const ExchangeRateCard = ({
   coins,
   rates,
+  isLoading,
   data,
-  onSubmit,
   largeNames,
+  onSubmit,
 }: {
   coins: { value: string; name: string }[];
   rates: { [key: string]: number };
+  isLoading: boolean;
   data: FormValues;
   largeNames: {
     from: string;
@@ -79,11 +82,17 @@ const ExchangeRateCard = ({
         </Wrapper>
         <Content>
           <BoxResult>
-            <ParagraphLarge>
-              {`${fromAmount} ${largeNames.from}`} =<br />
-              {`${toAmount} ${largeNames.to}`}
-            </ParagraphLarge>
-            <ParagraphSmall>{`${formatNumber(amount)} ${from} = ${formatNumber(Number(conversionRate)) ?? 0} ${to}`}</ParagraphSmall>
+            {isLoading ? (
+              <SkeletonResult variant="rectangular" animation="wave" />
+            ) : (
+              <>
+                <ParagraphLarge>
+                  {`${fromAmount} ${largeNames.from}`} =<br />
+                  {`${toAmount} ${largeNames.to}`}
+                </ParagraphLarge>
+                <ParagraphSmall>{`${formatNumber(amount)} ${from} = ${formatNumber(Number(conversionRate)) ?? 0} ${to}`}</ParagraphSmall>
+              </>
+            )}
           </BoxResult>
           <BoxTooltip>
             <TooltipInformative>

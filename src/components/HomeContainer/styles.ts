@@ -1,4 +1,4 @@
-import { Box, Skeleton, styled, Typography } from '@mui/material';
+import { Box, styled, Typography } from '@mui/material';
 
 export const Container = styled(Box)(({ theme }) => ({
   width: '100%',
@@ -27,15 +27,3 @@ export const ExchangeRateCardWrapper = styled(Box)({
   top: '72px',
   left: '295px',
 });
-
-export const SkeletonCard = styled(Skeleton)(({ theme }) => ({
-  width: '100%',
-  maxHeight: '479px',
-  height: '100%',
-  backgroundColor: '#F9F9F9',
-  borderRadius: '8px',
-  boxShadow: '0px 5px 5px rgba(0, 0, 0, 0.25)',
-  [theme.breakpoints.up('md')]: {
-    maxHeight: '400px',
-  },
-}));

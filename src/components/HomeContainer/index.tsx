@@ -3,7 +3,7 @@ import { useFormContext } from 'react-hook-form';
 import { RatesResponse } from '../../models/rates/ratesTypes';
 import { FormValues } from '../../schema';
 import ExchangeRateCard from '../ExchangeRateCard';
-import { Container, SkeletonCard, Title } from './styles';
+import { Container, Title } from './styles';
 import { formatNumber } from '../../utils/formatNumber';
 
 const HomeContainer = ({
@@ -38,25 +38,22 @@ const HomeContainer = ({
   return (
     <Container>
       <Title>{`${formatNumber(amount)} ${from} to ${to} - Convert ${selectedFromName} to ${selectedToName}`}</Title>
-      {isLoading ? (
-        <SkeletonCard variant="rectangular" animation="wave" />
-      ) : (
-        <ExchangeRateCard
-          coins={coins}
-          rates={rates}
-          data={{
-            amount,
-            from,
-            to,
-            date,
-          }}
-          largeNames={{
-            from: selectedFromName,
-            to: selectedToName,
-          }}
-          onSubmit={handleExchange}
-        />
-      )}
+      <ExchangeRateCard
+        coins={coins}
+        rates={rates}
+        isLoading={isLoading}
+        data={{
+          amount,
+          from,
+          to,
+          date,
+        }}
+        largeNames={{
+          from: selectedFromName,
+          to: selectedToName,
+        }}
+        onSubmit={handleExchange}
+      />
     </Container>
   );
 };

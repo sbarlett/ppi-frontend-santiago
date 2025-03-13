@@ -1,4 +1,11 @@
-import { Box, IconButton, Link, styled, Typography } from '@mui/material';
+import {
+  Box,
+  IconButton,
+  Link,
+  Skeleton,
+  styled,
+  Typography,
+} from '@mui/material';
 
 export const Container = styled(Box)({
   display: 'flex',
@@ -51,6 +58,7 @@ export const BoxResult = styled(Box)(({ theme }) => ({
   gap: '10px',
   [theme.breakpoints.down('sm')]: {
     gap: '0px',
+    width: '100%',
   },
 }));
 
@@ -141,3 +149,13 @@ export const MuiLink = styled(Link)({
   color: '#000000',
   textDecorationColor: '#000000',
 });
+
+export const SkeletonResult = styled(Skeleton)(({ theme }) => ({
+  width: '100%',
+  height: '108px',
+  borderRadius: '8px',
+  boxShadow: '0px 5px 5px rgba(0, 0, 0, 0.25)',
+  [theme.breakpoints.up('md')]: {
+    height: '118px',
+  },
+}));
