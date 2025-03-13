@@ -29,7 +29,7 @@ const ExchangeRateCard = ({
   isLoading,
   data,
   largeNames,
-  onSubmit,
+  onSwap,
 }: {
   coins: { value: string; name: string }[];
   rates: { [key: string]: number };
@@ -39,9 +39,9 @@ const ExchangeRateCard = ({
     from: string;
     to: string;
   };
-  onSubmit: (data: FormValues) => void;
+  onSwap: () => void;
 }) => {
-  const { control, handleSubmit } = useFormContext();
+  const { control } = useFormContext();
   const { from, to, amount, date: lastUpdate } = data;
 
   const fromAmount = useMemo(() => rates[from], [rates, from]);
@@ -52,7 +52,7 @@ const ExchangeRateCard = ({
   }, [amount, fromAmount, toAmount]);
 
   return (
-    <Container component="form" onSubmit={handleSubmit(onSubmit)}>
+    <Container component="form">
       <Card>
         <Wrapper>
           <InputController
@@ -69,7 +69,7 @@ const ExchangeRateCard = ({
             placeholder="Select currency"
             options={coins}
           />
-          <MuiIconButton type="submit">
+          <MuiIconButton onClick={onSwap}>
             <ExchangeIcon />
           </MuiIconButton>
           <SelectController

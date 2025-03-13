@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useCallback, useMemo } from 'react';
 import { useFormContext } from 'react-hook-form';
 import { RatesResponse } from '../../models/rates/ratesTypes';
 import { FormValues } from '../../schema';
@@ -30,10 +30,10 @@ const HomeContainer = ({
     [coins, to]
   );
 
-  const handleExchange = (data: FormValues) => {
-    setValue('from', data.to);
-    setValue('to', data.from);
-  };
+  const handleSwap = useCallback(() => {
+    setValue('from', to);
+    setValue('to', from);
+  }, [setValue, from, to]);
 
   return (
     <Container>
@@ -52,7 +52,7 @@ const HomeContainer = ({
           from: selectedFromName,
           to: selectedToName,
         }}
-        onSubmit={handleExchange}
+        onSwap={handleSwap}
       />
     </Container>
   );
