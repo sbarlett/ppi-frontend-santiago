@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const ExchangeIcon = () => {
+const ExchangeIcon = () => {
   return (
     <svg
       width="18"
@@ -31,3 +31,5 @@ export const ExchangeIcon = () => {
     </svg>
   );
 };
+
+export default ExchangeIcon;

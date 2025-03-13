@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 import { useFormContext } from 'react-hook-form';
 import { FormValues } from '../../schema';
 import { formatNumber } from '../../utils/formatNumber';
-import { ExchangeIcon } from '../assets';
+import ExchangeIcon from '../assets/ExchangeIcon';
 import InputController from '../Controller/InputController/InputController';
 import SelectController from '../Controller/SelectController';
 import {

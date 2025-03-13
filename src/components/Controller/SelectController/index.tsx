@@ -5,8 +5,8 @@ import {
   useController,
   UseControllerProps,
 } from 'react-hook-form';
-import { ArrowDownIcon } from '../../assets';
 import { MenuProps, MuiLabel, MuiSelect, StyledMenuItem } from './styles';
+import ArrowDownIcon from '../../assets/ArrowDownIcon';
 
 export const ArrowIcon = ({
   open,
