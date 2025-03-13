@@ -128,6 +128,7 @@ export const TextMobile = styled(Typography)(({ theme }) => ({
   fontWeight: 300,
   lineHeight: '23px',
   display: 'none',
+  paddingBottom: '10px',
   [theme.breakpoints.down('sm')]: {
     display: 'block',
   },
