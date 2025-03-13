@@ -63,6 +63,9 @@ export const ParagraphLarge = styled(Typography)(({ theme }) => ({
     whiteSpace: 'nowrap',
     fontSize: 26,
   },
+  [theme.breakpoints.only('xs')]: {
+    fontSize: 24,
+  },
 }));
 
 export const ParagraphSmall = styled(Typography)({

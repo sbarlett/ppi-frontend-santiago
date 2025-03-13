@@ -40,13 +40,12 @@ function SelectController<T extends FieldValues>({
     name,
   });
   const [open, setOpen] = useState<boolean>(false);
-  const onOpen = () => setOpen(true);
-  const onClose = () => setOpen(false);
+  const handleToggle = () => setOpen((prev) => !prev);
 
   const menuWidth = typeof sx === 'object' && (sx as { width?: string }).width;
 
   return (
-    <FormControl fullWidth>
+    <FormControl fullWidth onClick={handleToggle}>
       <MuiLabel>{label}</MuiLabel>
       <MuiSelect
         value={value}
@@ -59,8 +58,8 @@ function SelectController<T extends FieldValues>({
           </MuiIcon>
         )}
         MenuProps={MenuProps(menuWidth)}
-        onOpen={onOpen}
-        onClose={onClose}
+        onOpen={handleToggle}
+        onClose={handleToggle}
         fullWidth
         {...props}
         {...field}
