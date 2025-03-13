@@ -74,7 +74,6 @@ const ExchangeRateCard = ({
             onClick={onSwap}
             type="button"
             aria-label="Swap currencies"
-            tabIndex={1}
           >
             <ExchangeIcon />
           </MuiIconButton>
