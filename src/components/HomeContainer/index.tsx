@@ -30,6 +30,10 @@ const HomeContainer = ({
     [coins, to]
   );
 
+  const titleText = useMemo(() => {
+    return `${formatNumber(amount)} ${from} to ${to} - Convert ${selectedFromName} to ${selectedToName}`;
+  }, [amount, from, to, selectedFromName, selectedToName]);
+
   const handleSwap = useCallback(() => {
     setValue('from', to);
     setValue('to', from);
@@ -37,7 +41,7 @@ const HomeContainer = ({
 
   return (
     <Container>
-      <Title>{`${formatNumber(amount)} ${from} to ${to} - Convert ${selectedFromName} to ${selectedToName}`}</Title>
+      <Title>{titleText}</Title>
       <ExchangeRateCard
         coins={coins}
         rates={rates}
