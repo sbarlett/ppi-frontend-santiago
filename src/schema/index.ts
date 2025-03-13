@@ -8,7 +8,7 @@ export interface FormValues {
 }
 
 export const defaultValues: FormValues = {
-  amount: 1,
+  amount: 100,
   from: 'USD',
   to: 'EUR',
   date: now,

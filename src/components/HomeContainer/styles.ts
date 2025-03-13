@@ -32,10 +32,10 @@ export const SkeletonCard = styled(Skeleton)(({ theme }) => ({
   width: '100%',
   maxHeight: '479px',
   height: '100%',
-  backgroundColor: '#F7F7F7',
+  backgroundColor: '#F9F9F9',
   borderRadius: '8px',
   boxShadow: '0px 5px 5px rgba(0, 0, 0, 0.25)',
   [theme.breakpoints.up('md')]: {
-    maxHeight: '435px',
+    maxHeight: '400px',
   },
 }));
