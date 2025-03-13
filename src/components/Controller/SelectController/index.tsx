@@ -55,7 +55,7 @@ function SelectController<T extends FieldValues>({
 
   return (
     <FormControl fullWidth>
-      <MuiLabel>{label}</MuiLabel>
+      <MuiLabel aria-label={label}>{label}</MuiLabel>
       <MuiSelect
         value={value}
         inputRef={ref}

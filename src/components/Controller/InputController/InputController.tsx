@@ -50,6 +50,7 @@ function InputController<T extends FieldValues>({
       value={value}
       onChange={handleChange}
       type="number"
+      aria-label={label}
       InputProps={{
         sx: {
           maxHeight: '40px',
